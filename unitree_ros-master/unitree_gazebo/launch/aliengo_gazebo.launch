@@ -21,8 +21,11 @@
     </include>
 
     <!-- Load the URDF into the ROS Parameter Server -->
+    <!-- <param name="robot_description" -->
+           <!-- textfile="$(find aliengo_description)/xacro/aliengo.urdf"/> -->
+    
     <param name="robot_description"
-           textfile="$(find aliengo_description)/xacro/aliengo.urdf"/>
+           textfile="$(find aliengo_description)/xacro/aliengo1.urdf"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
@@ -55,4 +58,26 @@
 
     <node pkg="aliengo_description" type="odometry" name="odometry" respawn="false" output="screen">
     </node>
+
+    <!-- load params of joint into master -->
+    <rosparam file="$(find ros_arm)/config/controllers/arm_gazebo_control.yaml" command="load"/>
+    
+    <!-- load controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="/arm" args="joint_state_controller
+                                          joint1_position_controller
+                                          joint2_position_controller
+                                          joint3_position_controller
+                                          joint4_position_controller
+                                          joint5_position_controller
+                                          joint6_position_controller
+                                          finger_joint1_position_controller
+                                          finger_joint2_position_controller"/>
+
+    <!-- run node robot_state_publisher，pub tf  -->
+    <node name="robot_state_publisher_arm" pkg="robot_state_publisher" type="robot_state_publisher_arm"
+          respawn="false" output="screen">
+        <remap from="/joint_states" to="/arm/joint_states" />
+    </node>
+
 </launch>
