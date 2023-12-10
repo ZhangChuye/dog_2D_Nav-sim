@@ -1,5 +1,5 @@
   <joint name="camera_joint1" type="fixed">
-    <origin rpy="0 -0.39 0" xyz="0.328 0 0.024"/>
+    <origin rpy="0 -0.39 0" xyz="0.328 0 0.124"/>
     <parent link="trunk"/>
     <child link="camera_bottom_screw_frame1"/>
   </joint>

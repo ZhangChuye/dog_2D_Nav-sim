@@ -17,7 +17,10 @@
     <rosparam command="load" file="$(find rtab_map_testing_pkg)/config/rtab_rosparam.yaml"/>
     <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
             <?ignore xxx ?>
-            <arg name="rtabmap_args"       value="--delete_db_on_start"/>
+            
+            <!-- <arg name="args"               default=""/>  -->
+            <arg name="rtabmap_args"       default=""/>   <!-- deprecated, use "args" argument -->
+            <arg name="database_path"      value="$(arg database_path)"/>
             <arg name="depth_topic"        value="/camera/depth/image_raw"/>
             <arg name="frame_id"           value="camera_depth_optical_frame"/>
             <arg name="visual_odometry"    value="false"/>

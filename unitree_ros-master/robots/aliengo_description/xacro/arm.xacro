@@ -68,7 +68,7 @@
 
     <!-- ///////////////////////////////////////   bottom_joint   ////////////////////////////////////////// -->
     <joint name="bottom_joint" type="fixed">
-        <origin xyz="0 0 -0.025" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <parent link="trunk"/>
         <child link="bottom_link"/>
     </joint>
@@ -323,16 +323,16 @@
     </joint>
 
     <!-- /////////////////////////////////   camera   ////////////////////////////////////// -->
-    <xacro:include filename="camera.xacro" />
-    <xacro:include filename="camera_sensor.xacro" />
+    <!-- <xacro:include filename="camera.xacro" /> -->
+    <!-- <xacro:include filename="camera_sensor.xacro" /> -->
 
     <!-- /////////////////////////////////   Gazebo   ////////////////////////////////////// -->
     <gazebo reference="bottom_link">
         <material>Gazebo/Black</material>
     </gazebo>
-    <gazebo reference="base_link">
+    <!-- <gazebo reference="base_link">
         <material>Gazebo/White</material>
-    </gazebo>
+    </gazebo> -->
     <gazebo reference="link1">
         <material>Gazebo/Blue</material>
     </gazebo>

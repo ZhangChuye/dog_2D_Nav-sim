@@ -25,7 +25,7 @@
            <!-- textfile="$(find aliengo_description)/xacro/aliengo.urdf"/> -->
     
     <param name="robot_description"
-           textfile="$(find aliengo_description)/xacro/aliengo1.urdf"/>
+           textfile="$(find aliengo_description)/xacro/aliengo.urdf"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
@@ -47,6 +47,7 @@
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
           respawn="false" output="screen">
         <remap from="/joint_states" to="/$(arg rname)_gazebo/joint_states"/>
+        <!-- <remap from="/joint_states" to="/arm/joint_states" /> -->
     </node>
 
     <!-- <node pkg="unitree_gazebo" type="servo" name="servo" required="true" output="screen"/> -->
@@ -75,7 +76,7 @@
                                           finger_joint2_position_controller"/>
 
     <!-- run node robot_state_publisher，pub tf  -->
-    <node name="robot_state_publisher_arm" pkg="robot_state_publisher" type="robot_state_publisher_arm"
+    <node name="robot_state_publisher_arm" pkg="robot_state_publisher" type="robot_state_publisher"
           respawn="false" output="screen">
         <remap from="/joint_states" to="/arm/joint_states" />
     </node>
