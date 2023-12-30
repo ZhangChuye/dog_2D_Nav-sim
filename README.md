@@ -1,3 +1,35 @@
+# 2D Navigation Simulation
+Code Usage (example: maze): 
+
+1. Launch gazebo world
+``` 
+roslaunch unitree_gazebo aliengo_gazebo.launch wname:=smaze2d
+```
+2. Launch controller
+```
+roslaunch aliengo_gait_controller  aliengo_gait launch
+```
+3. Run Rtabmap node 
+Begin rtabmap and record to path "~/nav_ws/src/dog_2D_Nav-sim/rtab_map_testing_pkg/map_save/maze_map.db"
+
+To use it, you should change it to your own path.
+```
+roslaunch rtab_map_testing_pkg rtab_map.launch database_path:="~/nav_ws/src/dog_2D_Nav-sim/rtab_map_testing_pkg/map_save/maze_map.db"
+```
+
+4. Begin explore or nav.
+Nav
+```
+roslaunch aliengo_2dnav navigation_aliengo.launch
+```
+Explore
+```
+roslaunch aliengo_2dnav explore_aliengo.launch
+```
+
+---
+original readme
+
 # Unitree Aliengo Navigation Simulation
 [![Repository Status](https://img.shields.io/badge/Repository%20Status-Maintained-dark%20green.svg)](https://github.com/guru-narayana/Aliengo_Nav-sim)
 [![Author](https://img.shields.io/badge/Author-Nara%20Guru%20Narayanaswamy-blue)](https://www.linkedin.com/in/nara-guru-narayanaswamy-658a811b0/)

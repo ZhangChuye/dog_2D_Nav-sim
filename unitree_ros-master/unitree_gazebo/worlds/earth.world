@@ -29,15 +29,86 @@
             </clouds>
         </sky>
         </scene>
-        <!-- A global light source -->
-        <include>
-            <uri>model://sun</uri>
-        </include>
+        
         <!-- A ground plane -->
         <include>
             <uri>model://ground_plane</uri>
         </include>
         <!-- environment blocks, obstacles or stairs -->
+
+    <model name='box_red_0'>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.04 0.04 0.04</size>
+            </box>
+          </geometry>
+          <pose>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.04 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <mu1>5</mu1>
+      <mu2>5</mu2>
+      <pose>-3.255197 0.010039 1 0 -0 0</pose>
+    </model>
+
+    <model name='table'>
+      <link name='link'>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.24 0.24 0.44</size>
+            </box>
+          </geometry>
+          <pose>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.24 0.24 0.44</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <mu1>5</mu1>
+      <mu2>5</mu2>
+      <pose>-3.255197 0.010039 0.8 0 -0 0</pose>
+    </model>
 
         
         <include>
